@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: grey;
+    justify-content: flex-start;
+}
+
+.banner{
+    background: white;
+    color: navy;
+    font-size: 20px;
+    margin: 100px auto 0;
+    padding: 20px;
+    width: fit-content;
+    text-align: center;
+}
+
+.banner h2{
+    font-size: 10px;
+    padding: 5%;
+    border-bottom: 1px solid black;
+    margin-bottom: 5%;
+}
+
+#start-button begin-quiz:hover{
+    background-color: cornflowerblue;
+    color:white;
+}

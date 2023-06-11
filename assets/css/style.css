@@ -16,7 +16,7 @@ body{
     font-size: 24px;
     margin: 100px auto 0;
     padding: 20px;
-    width: fit-content;
+    width:fit-content;
     text-align: center;
     border: solid pink;
 }
@@ -46,4 +46,32 @@ body{
     background-color: cornflowerblue;
     color:white;
     transition: .2s;
+}
+
+.buttons{
+    background-color: lavender;
+    color:navy;
+    font-size: 32px;
+    margin-bottom: 5%;
+}
+
+.Quiz h2{
+    color:navy;
+    text-align: center;
+    font-size: 36px;
+}
+
+.buttons{
+    text-align: left;
+    font-size: 20px;
+    width: 100%;
+}
+
+.buttons:hover{
+    background-color: cornflowerblue;
+    color:white;
+    transition: .2s;    
+}
+/*#question{
+
 }

@@ -52,17 +52,25 @@ const questAnnoying = [
     },
 ]
 
-var getElement = document.getElementById("begin-quiz");
+var timerSec = 120; //Two minutes to answer every question
+var wrongAns = 10; //Penalty for a wrong answer
+var endGame = false; //Ends everything
 
-//function{
-//    if (document.setElementByID("click",questAnnoying){
+/*function startOff(){
+    .forEach(element => {
+        if (answer.checked){
 
-//    }
-//}
+        }    
+    });
+}
+*/
+
 
 for(var i=0; i < questAnnoying.length; i++){
-    console.log("Correct!");
-    }else {
-    console.log("Wrong answer, homeboy.");
+    if(questions.answers[i] === true){
+        console.log("Correct!")
+    }else{
+        console.log("Wrong answer, homeboy.")
+    }    
 }
 

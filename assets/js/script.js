@@ -28,6 +28,7 @@ function starter(){
     startQuest = 0;
     startItOut.classList.add('hide');
     questBox.classList.remove('hide');
+    startTimer()
     nextQuest();
 }
 
@@ -144,7 +145,22 @@ const questAnnoying = [
 var timerSec = 120; //Two minutes to answer every question
 var wrongAns = 10; //Penalty for a wrong answer
 var endGame = false; //Ends everything
+var timeEle = document.getElementById("timer-el")
+var timerObject;
+function startTimer(){
+    timerObject = setInterval(function(){
+        timeEle.textContent = "Time Left: "+timerSec
+        if(timerSec > 0){
+            timerSec--
+        }else{
+            endQuiz()
+        }
+    },1000)
+}
 
+function endQuiz(){
+    clearInterval(timerObject)
+}
 /*function startOff(){
     .forEach(element => {
         if (answer.checked){

@@ -6,28 +6,44 @@
 }
 
 body{
-    background: grey;
+    background: lightblue;
     justify-content: flex-start;
 }
 
 .banner{
     background: white;
     color: navy;
-    font-size: 20px;
+    font-size: 24px;
     margin: 100px auto 0;
     padding: 20px;
     width: fit-content;
     text-align: center;
+    border: solid pink;
+}
+
+.banner h1{
+    border: 1px solid chartreuse;
+    border-width: 3px;
+    justify-content: center;
 }
 
 .banner h2{
-    font-size: 10px;
+    font-size: 20px;
+    color: red;
     padding: 5%;
     border-bottom: 1px solid black;
     margin-bottom: 5%;
 }
 
-#start-button begin-quiz:hover{
+#begin-quiz{
+    background-color: lavender;
+    color:navy;
+    font-size: 32px;
+    margin-bottom: 5%;
+}
+
+#begin-quiz:hover{
     background-color: cornflowerblue;
     color:white;
+    transition: .2s;
 }

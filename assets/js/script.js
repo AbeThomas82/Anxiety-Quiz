@@ -25,6 +25,7 @@ forwardItOut.addEventListener('click', () =>{
 
 
 function starter(){
+    document.getElementById('Test-Title').classList.add('hide')
     document.getElementById('questions').classList.remove('hide')
     console.log("GOOD LUCK");
     startQuest = 0;
@@ -36,7 +37,11 @@ function starter(){
 
 function nextQuest(){
     resetState();
-    displayQuest(questAnnoying[startQuest])    
+    displayQuest(questAnnoying[startQuest])
+    if(startQuest == questAnnoying.length){
+        endQuiz();
+        resetState();
+    }    
 }
 
 function displayQuest(questions){

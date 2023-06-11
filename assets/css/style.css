@@ -61,3 +61,14 @@ body{
 .hide{
     display: none;
 }
+
+.correct{
+    background-color: black;
+    border: 5px solid green;
+    color: white;
+}
+
+.wrong{
+    background-color: white;
+    border: 5px solid red;
+}

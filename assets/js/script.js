@@ -12,18 +12,20 @@ const questBox = document.getElementById('storage');
 const questEl = document.getElementById('questions');
 const answerEl = document.getElementById('answers');
 
-let startQuest;
+let startQuest=0;
 
 startItOut.addEventListener('click', starter);
 forwardItOut.addEventListener('click', () =>{
+    
     startQuest++
     nextQuest()
 })
 
-document.getElementById('questions');
+
 
 
 function starter(){
+    document.getElementById('questions').classList.remove('hide')
     console.log("GOOD LUCK");
     startQuest = 0;
     startItOut.classList.add('hide');
@@ -43,9 +45,9 @@ function displayQuest(questions){
         const button = document.createElement('button')
         button.innerText = answers.text
         button.classList.add('options')
-        if(answers === true){
-            button.dataset.correct = answers.correct
-        }
+        //if(answers === true){
+            button.dataset.correct = answers.accurate
+        //}
         button.addEventListener('click',pickClick)
         answerEl.appendChild(button)
     });
@@ -53,14 +55,23 @@ function displayQuest(questions){
 
 function pickClick(event){
     const chooseAnswer = event.target;
-    const valid = chooseAnswer.dataset.valid;
-    setStatusClass(document.body, valid);
-    Array.from(answerEl.children).forEach(button => {
-        setStatusClass(button, button.dataset.valid)
-    })
+    const valid = chooseAnswer.dataset.correct;
+    console.log("valid",valid)
+   
+    if (valid == "true"){
+        chooseAnswer.classList.add('correct')
+    }else{
+        timerSec -=5
+        chooseAnswer.classList.add('wrong')
+    }
+    // setStatusClass(chooseAnswer, valid);
+    // Array.from(answerEl.children).forEach(button => {
+    //     setStatusClass(button, button.dataset.valid)
+    // })
     if ( questAnnoying.length > startQuest + 1){
         forwardItOut.classList.remove('hide')
     }else{
+        document.getElementById('questions').classList.add('hide')
         startItOut.innerText = 'Restart'
         startItOut.classList.remove('hide')
     }
@@ -72,6 +83,7 @@ function setStatusClass(element, valid) {
     if (valid){
         element.classList.add('correct')
     }else{
+        timerSec -= 10
         element.classList.add('wrong')
     }
 }
@@ -149,8 +161,9 @@ var timeEle = document.getElementById("timer-el")
 var timerObject;
 function startTimer(){
     timerObject = setInterval(function(){
-        timeEle.textContent = "Time Left: "+timerSec
+        //timeEle.textContent = "Time Left: "+timerSec
         if(timerSec > 0){
+            timeEle.textContent = "Time Left: "+timerSec
             timerSec--
         }else{
             endQuiz()

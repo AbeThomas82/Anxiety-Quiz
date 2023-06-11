@@ -7,10 +7,10 @@
 
 body{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     background: lightblue;
     justify-content: center;
-    height: 550px;
 }
 
 .Quiz{
@@ -63,17 +63,23 @@ body{
 }
 
 .correct{
-    background-color: black;
+    background-color: white;
     border: 5px solid green;
-    color: white;
+    font-weight:bold;
 }
 
 .wrong{
-    background-color: white;
+    background-color: black;
+    color: white;
     border: 5px solid red;
+    font-weight: bold;
 }
 
-/*#timer-el{
+header{
+    color:navy;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 50px;
     padding: 5%;
-    justify-content: space-around;
+    justify-content: first baseline;
 }

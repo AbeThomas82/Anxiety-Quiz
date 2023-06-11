@@ -66,7 +66,7 @@ function pickClick(event){
     if (valid == "true"){
         chooseAnswer.classList.add('correct')
     }else{
-        timerSec -=5
+        timerSec -=30
         chooseAnswer.classList.add('wrong')
     }
     // setStatusClass(chooseAnswer, valid);
@@ -79,8 +79,9 @@ function pickClick(event){
         document.getElementById('questions').classList.add('hide')
         startItOut.innerText = 'Restart'
         startItOut.classList.remove('hide')
-    }
+    }    
     forwardItOut.classList.remove('hide')
+    startTimer()
 }
 
 function setStatusClass(element, valid) {
@@ -167,10 +168,11 @@ var timerObject;
 function startTimer(){
     timerObject = setInterval(function(){
         //timeEle.textContent = "Time Left: "+timerSec
-        if(timerSec > 0){
+        if(timerSec >= 0){
             timeEle.textContent = "Time Left: "+timerSec
             timerSec--
         }else{
+            clearInterval(timerObject)
             endQuiz()
         }
     },1000)

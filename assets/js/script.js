@@ -1,3 +1,92 @@
+//1. Begin game.
+//2. Proceed.
+//3. Highlight options with hover.
+//4. Pick answer.
+//5. Timer.
+//6. Decrease time but more with wrong answer.
+
+const startItOut = document.getElementById("start-button");
+const forwardItOut = document.getElementById("forward-game");
+
+const questBox = document.getElementById('storage');
+const questEl = document.getElementById('questions');
+const answerEl = document.getElementById('answers');
+
+let startQuest;
+
+startItOut.addEventListener('click', starter);
+forwardItOut.addEventListener('click', () =>{
+    startQuest++
+    nextQuest()
+})
+
+document.getElementById('questions');
+
+
+function starter(){
+    console.log("GOOD LUCK");
+    startQuest = 0;
+    startItOut.classList.add('hide');
+    questBox.classList.remove('hide');
+    nextQuest();
+}
+
+function nextQuest(){
+    resetState();
+    displayQuest(questAnnoying[startQuest])    
+}
+
+function displayQuest(questions){
+    questEl.innerText = questions.question;
+    questions.answers.forEach(answers => {
+        const button = document.createElement('button')
+        button.innerText = answers.text
+        button.classList.add('options')
+        if(answers === true){
+            button.dataset.correct = answers.correct
+        }
+        button.addEventListener('click',pickClick)
+        answerEl.appendChild(button)
+    });
+}
+
+function pickClick(event){
+    const chooseAnswer = event.target;
+    const valid = chooseAnswer.dataset.valid;
+    setStatusClass(document.body, valid);
+    Array.from(answerEl.children).forEach(button => {
+        setStatusClass(button, button.dataset.valid)
+    })
+    if ( questAnnoying.length > startQuest + 1){
+        forwardItOut.classList.remove('hide')
+    }else{
+        startItOut.innerText = 'Restart'
+        startItOut.classList.remove('hide')
+    }
+    forwardItOut.classList.remove('hide')
+}
+
+function setStatusClass(element, valid) {
+    clearStatusClass(element)
+    if (valid){
+        element.classList.add('correct')
+    }else{
+        element.classList.add('wrong')
+    }
+}
+
+function clearStatusClass(element){
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+}
+
+function resetState(){
+    forwardItOut.classList.add('hide');
+    while (answerEl.firstChild){
+        answerEl.removeChild
+        (answerEl.firstChild)
+    }
+}
 const questAnnoying = [
     //https://quizlet.com/779286477/javascript-fundamentals-flash-cards/
     {
@@ -63,14 +152,15 @@ var endGame = false; //Ends everything
         }    
     });
 }
-*/
 
+function clearScreen(){
+    document.getElementById()
+}
 
 for(var i=0; i < questAnnoying.length; i++){
-    if(questions.answers[i] === true){
+    if(questAnnoying[i] === true){
         console.log("Correct!")
     }else{
         console.log("Wrong answer, homeboy.")
     }    
-}
-
+}*/

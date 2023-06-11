@@ -6,72 +6,58 @@
 }
 
 body{
+    display: flex;
+    align-items: center;
     background: lightblue;
-    justify-content: flex-start;
-}
-
-.banner{
-    background: white;
-    color: navy;
-    font-size: 24px;
-    margin: 100px auto 0;
-    padding: 20px;
-    width:fit-content;
-    text-align: center;
-    border: solid pink;
-}
-
-.banner h1{
-    border: 1px solid chartreuse;
-    border-width: 3px;
     justify-content: center;
+    height: 550px;
 }
 
-.banner h2{
-    font-size: 20px;
-    color: red;
-    padding: 5%;
-    border-bottom: 1px solid black;
-    margin-bottom: 5%;
+.Quiz{
+    max-width:75%;
+    width:650px;
+    padding: 10px;
+    background-color: aliceblue;
+    border-width: 25px;
+
 }
 
-#begin-quiz{
-    background-color: lavender;
-    color:navy;
-    font-size: 32px;
-    margin-bottom: 5%;
-}
-
-#begin-quiz:hover{
-    background-color: cornflowerblue;
-    color:white;
-    transition: .2s;
-}
-
-.buttons{
-    background-color: lavender;
-    color:navy;
-    font-size: 32px;
-    margin-bottom: 5%;
-}
-
-.Quiz h2{
-    color:navy;
-    text-align: center;
-    font-size: 36px;
-}
-
-.buttons{
-    text-align: left;
-    font-size: 20px;
-    width: 100%;
-}
-
-.buttons:hover{
+.options:hover{
     background-color: cornflowerblue;
     color:white;
     transition: .2s;    
 }
-/*#question{
 
+.layout{
+    display:grid;
+    margin: 25px;
+    gap: 5px;
+}
+
+.options{
+    background-color: lavender;
+    border: solid navy;
+    padding: 10px;
+}
+
+#back-and-forth{
+    align-items: center;
+    justify-content: center;
+    display: flex;    
+}
+
+.start-button{
+    background-color: red;
+    font-weight:bolder;
+    font-size:20px;
+}
+
+.forward-game{
+    background-color: paleturquoise;
+    font-weight: bolder;
+    font-size:20px;
+}
+
+.hide{
+    display: none;
 }

@@ -44,7 +44,7 @@ function nextQuest(){
     }    
 }
 
-function displayQuest(questions){
+function displayQuest(questAnnoying){
     questEl.innerText = questions.question;
     questions.answers.forEach(answers => {
         const button = document.createElement('button')

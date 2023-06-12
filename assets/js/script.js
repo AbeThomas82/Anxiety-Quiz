@@ -16,11 +16,17 @@ startItOut.addEventListener("click", starter);
 //   startQuest++;
 //   nextQuest();
 // });
+var timerSec = 120; //Two minutes to answer every question
+var wrongAns = 10; //Penalty for a wrong answer
+var endGame = false; //Ends everything
+var timeEle = document.getElementById("timer-el");
+var timerObject;
 function starter() {
   document.getElementById("Test-Title").classList.add("hide");
   document.getElementById("questions").classList.remove("hide");
   console.log("GOOD LUCK");
   startQuest = 0;
+  timerSec = 120;
   startItOut.classList.add("hide");
   questBox.classList.remove("hide");
   startTimer();
@@ -85,7 +91,6 @@ function setStatusClass(element, valid) {
   if (valid) {
     element.classList.add("correct");
   } else {
-    timerSec -= 10;
     element.classList.add("wrong");
   }
 }
@@ -153,11 +158,7 @@ const questAnnoying = [
     ],
   },
 ];
-var timerSec = 120; //Two minutes to answer every question
-var wrongAns = 10; //Penalty for a wrong answer
-var endGame = false; //Ends everything
-var timeEle = document.getElementById("timer-el");
-var timerObject;
+
 function startTimer() {
   timerObject = setInterval(function () {
     //timeEle.textContent = "Time Left: "+timerSec

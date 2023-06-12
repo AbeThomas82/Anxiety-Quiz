@@ -81,7 +81,7 @@ function pickClick(event){
         startItOut.classList.remove('hide')
     }    
     forwardItOut.classList.remove('hide')
-    startTimer()
+    //startTimer()
 }
 
 function setStatusClass(element, valid) {

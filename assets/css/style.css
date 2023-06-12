@@ -87,3 +87,9 @@ header h3{
     color:darkslategray;
     padding: 5%;
 }
+
+#scoreboard{
+    padding: 5%;
+    color: lavender;
+    background-color: navy;
+}

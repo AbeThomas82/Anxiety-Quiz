@@ -26,6 +26,7 @@ function starter() {
   startTimer();
   nextQuest();
 }
+
 function nextQuest() {
   resetState();
   displayQuest(questAnnoying[startQuest]);
@@ -34,9 +35,10 @@ function nextQuest() {
     resetState();
   }
 }
-function displayQuest(questions) {
-  questEl.innerText = questions.question;
-  questions.answers.forEach((answers) => {
+
+function displayQuest(question) {
+  questEl.innerText = questAnnoying.question;
+  question.answers.forEach((answers) => {
     const button = document.createElement("button");
     button.innerText = answers.text;
     button.classList.add("options");
@@ -169,6 +171,18 @@ function startTimer() {
 function endQuiz() {
   clearInterval(timerObject);
 }
+var score = 0;
+//const valid = chooseAnswer.dataset.correct;
+
+//function countScore(){
+//    for (var i=0; i < questAnnoying.length; i++){
+//       if(valid == true){
+//      score++;
+//        prompt("Your score is "+ score)
+//        console.log("Your score is "+ score);
+//        }
+//    }
+//}
 /*function startOff(){
     .forEach(element => {
         if (answer.checked){

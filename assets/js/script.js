@@ -6,19 +6,16 @@
 //6. Decrease time but more with wrong answer.
 
 const startItOut = document.getElementById("start-button");
-// const forwardItOut = document.getElementById("forward-game");
 const timeStart = document.getElementById("timer-el");
 const questBox = document.getElementById("storage");
 const questEl = document.getElementById("questions");
 const answerEl = document.getElementById("answers");
 const scoreBoard = document.getElementById("scoreboard");
+scoreBoard.style.display = "none"
 let startQuest = 0;
 startItOut.addEventListener("click", starter);
 timeStart.addEventListener("click", starter);
-// forwardItOut.addEventListener("click", () => {
-//   startQuest++;
-//   nextQuest();
-// });
+
 var timerSec = 120; //Two minutes to answer every question
 var wrongAns = 10; //Penalty for a wrong answer
 var endGame = false; //Ends everything
@@ -82,9 +79,10 @@ const questAnnoying = [
   
 
 function starter() {
+  document.getElementById("saveUser").addEventListener("click",storeName);  
+  //document.getElementById("clearScores").addEventListener("click",clearScores);  
   document.getElementById("Test-Title").classList.add("hide");
   document.getElementById("Instruct").classList.add("hide");
-  document.getElementById("scoreboard").classList.add("hide");
   document.getElementById("questions").classList.remove("hide");
   console.log("GOOD LUCK");
   startQuest = 0;
@@ -103,8 +101,6 @@ function nextQuest() {
   }else{
     endQuiz();
     scoreBoard.classList.remove("hide");    
-    startItOut.innerText = "Restart";
-    startItOut.classList.remove("hide");
     countScore();
   }
 }
@@ -115,9 +111,7 @@ function displayQuest(questions) {
     const button = document.createElement("button");
     button.innerText = answers.text;
     button.classList.add("options");
-    //if(answers === true){
     button.dataset.correct = answers.accurate;
-    //}
     button.addEventListener("click", pickClick);
     answerEl.appendChild(button);
   });
@@ -137,19 +131,13 @@ function pickClick(event) {
     startQuest++;
     nextQuest();
   }
-  // setStatusClass(chooseAnswer, valid);
-  // Array.from(answerEl.children).forEach(button => {
-  //     setStatusClass(button, button.dataset.valid)
-  // })
+
   if (questAnnoying.length > startQuest + 1) {
     // forwardItOut.classList.remove("hide");
   } else {
     document.getElementById("questions").classList.add("hide");
-    //startItOut.innerText = "Restart";
-    //startItOut.classList.remove("hide");
   }
-  // forwardItOut.classList.remove("hide");
-  //startTimer()
+ 
 }
 
 function setStatusClass(element, valid) {
@@ -165,7 +153,6 @@ function clearStatusClass(element) {
   element.classList.remove("wrong");
 }
 function resetState() {
-  // forwardItOut.classList.add("hide");
   while (answerEl.firstChild) {
     answerEl.removeChild(answerEl.firstChild);
   }
@@ -173,7 +160,6 @@ function resetState() {
 
 function startTimer() {
   timerObject = setInterval(function () {
-    //timeEle.textContent = "Time Left: "+timerSec
     if (timerSec >= 0) {
       timeEle.textContent = "Time Left: " + timerSec;
       timerSec--;
@@ -183,34 +169,28 @@ function startTimer() {
     }
   }, 1000);
 }
+
+function storeName(){
+    var username = document.getElementById("Initials").value
+    var storeLeader = JSON.parse(localStorage.getItem("userScore"))||[]
+    storeLeader.push({user:username,score:score*20})
+    localStorage.setItem("userScore",JSON.stringify(storeLeader))
+    scoreBoard.style.display = "none";
+    startItOut.innerText = "Restart";
+    alert("If you would like to restart the quiz. Click restart button on next page.");
+    startItOut.classList.remove("hide");
+}
+
+//function clearScores(){
+//    localStorage.clear();
+//}
+
 function endQuiz() {
   clearInterval(timerObject);
+  scoreBoard.style.display = "block";
 }
-//var score = 0;
-//const valid = chooseAnswer.dataset.correct;
 
 function countScore(){       
-    prompt("Your score is "+ score*20 +"!");
+    alert("Your score is "+ score*20 +"!");
     console.log("Your score is "+ score*20 +"!");
 }
-
-
-/*function startOff(){
-    .forEach(element => {
-        if (answer.checked){
-
-        }    
-    });
-}
-
-function clearScreen(){
-    document.getElementById()
-}
-
-for(var i=0; i < questAnnoying.length; i++){
-    if(questAnnoying[i] === true){
-        console.log("Correct!")
-    }else{
-        console.log("Wrong answer, homeboy.")
-    }    
-}*/

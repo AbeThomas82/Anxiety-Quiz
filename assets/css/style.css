@@ -89,7 +89,25 @@ header h3{
 }
 
 #scoreboard{
+    display: flex;
+    height: fit-content;
     padding: 5%;
     color: lavender;
     background-color: navy;
+}
+
+#scoreboard h4{
+    padding: 0;
+    text-align: center;
+    height:100%;
+}
+
+#saveUser{
+    display: inline-block;
+    justify-content: space-between;
+}
+
+#clearScores{
+    display:flex;
+    justify-content: space-between;    
 }

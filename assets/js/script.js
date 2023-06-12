@@ -44,7 +44,7 @@ function nextQuest(){
     }    
 }
 
-function displayQuest(questAnnoying){
+function displayQuest(questions){
     questEl.innerText = questions.question;
     questions.answers.forEach(answers => {
         const button = document.createElement('button')
@@ -179,7 +179,7 @@ function startTimer(){
 }
 
 function endQuiz(){
-    clearInterval(timerObject)
+        clearInterval(timerObject)
 }
 /*function startOff(){
     .forEach(element => {

@@ -36,9 +36,9 @@ function nextQuest() {
   }
 }
 
-function displayQuest(question) {
-  questEl.innerText = questAnnoying.question;
-  question.answers.forEach((answers) => {
+function displayQuest(questions) {
+  questEl.innerText = questions.question;
+  questions.answers.forEach((answers) => {
     const button = document.createElement("button");
     button.innerText = answers.text;
     button.classList.add("options");
@@ -177,7 +177,7 @@ var score = 0;
 //function countScore(){
 //    for (var i=0; i < questAnnoying.length; i++){
 //       if(valid == true){
-//      score++;
+//        score++;
 //        prompt("Your score is "+ score)
 //        console.log("Your score is "+ score);
 //        }

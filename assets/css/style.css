@@ -83,3 +83,7 @@ header{
     padding: 5%;
     justify-content: first baseline;
 }
+header h3{
+    color:darkslategray;
+    padding: 5%;
+}

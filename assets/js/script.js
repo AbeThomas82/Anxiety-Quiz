@@ -7,11 +7,14 @@
 
 const startItOut = document.getElementById("start-button");
 // const forwardItOut = document.getElementById("forward-game");
+const timeStart = document.getElementById("timer-el");
 const questBox = document.getElementById("storage");
 const questEl = document.getElementById("questions");
 const answerEl = document.getElementById("answers");
+const scoreBoard = document.getElementById("scoreboard");
 let startQuest = 0;
 startItOut.addEventListener("click", starter);
+timeStart.addEventListener("click", starter);
 // forwardItOut.addEventListener("click", () => {
 //   startQuest++;
 //   nextQuest();
@@ -21,7 +24,7 @@ var wrongAns = 10; //Penalty for a wrong answer
 var endGame = false; //Ends everything
 var timeEle = document.getElementById("timer-el");
 var timerObject;
-
+var score = 0;
 const questAnnoying = [
     //https://quizlet.com/779286477/javascript-fundamentals-flash-cards/
     {
@@ -80,11 +83,14 @@ const questAnnoying = [
 
 function starter() {
   document.getElementById("Test-Title").classList.add("hide");
+  document.getElementById("Instruct").classList.add("hide");
+  document.getElementById("scoreboard").classList.add("hide");
   document.getElementById("questions").classList.remove("hide");
   console.log("GOOD LUCK");
   startQuest = 0;
   timerSec = 120;
   startItOut.classList.add("hide");
+  timeStart.classList.remove("hide");
   questBox.classList.remove("hide");
   startTimer();
   nextQuest();
@@ -96,6 +102,7 @@ function nextQuest() {
     displayQuest(questAnnoying[startQuest]);  
   }else{
     endQuiz();
+    scoreBoard.classList.remove("hide");    
     startItOut.innerText = "Restart";
     startItOut.classList.remove("hide");
     countScore();
@@ -116,11 +123,12 @@ function displayQuest(questions) {
   });
 }
 function pickClick(event) {
-  const chooseAnswer = event.target;
+  let chooseAnswer = event.target;
   const valid = chooseAnswer.dataset.correct;
   console.log("valid", valid);
   if (valid == "true") {
     chooseAnswer.classList.add("correct");
+    score++
     startQuest++;
     nextQuest();
   } else {
@@ -178,19 +186,15 @@ function startTimer() {
 function endQuiz() {
   clearInterval(timerObject);
 }
-var score = 0;
+//var score = 0;
 //const valid = chooseAnswer.dataset.correct;
 
-function countScore(event){
-    const chooseAnswer = event.target;
-    for (var i=0; i < questAnnoying.length; i++){
-        if(valid == true){
-        score++;
-        prompt("Your score is "+ score*20)
-        console.log("Your score is "+ score*20);
-        }
-    }
+function countScore(){       
+    prompt("Your score is "+ score*20 +"!");
+    console.log("Your score is "+ score*20 +"!");
 }
+
+
 /*function startOff(){
     .forEach(element => {
         if (answer.checked){

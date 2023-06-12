@@ -33,7 +33,8 @@ function nextQuest() {
     displayQuest(questAnnoying[startQuest]);  
   }else{
     endQuiz();
-    resetState();
+    startItOut.innerText = "Restart";
+    startItOut.classList.remove("hide");
   }
 }
 
@@ -72,8 +73,8 @@ function pickClick(event) {
     // forwardItOut.classList.remove("hide");
   } else {
     document.getElementById("questions").classList.add("hide");
-    startItOut.innerText = "Restart";
-    startItOut.classList.remove("hide");
+    //startItOut.innerText = "Restart";
+    //startItOut.classList.remove("hide");
   }
   // forwardItOut.classList.remove("hide");
   //startTimer()

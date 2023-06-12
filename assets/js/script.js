@@ -80,7 +80,7 @@ const questAnnoying = [
 
 function starter() {
   document.getElementById("saveUser").addEventListener("click",storeName);  
-  //document.getElementById("clearScores").addEventListener("click",clearScores);  
+  document.getElementById("clearScores").addEventListener("click",clearScores);  
   document.getElementById("Test-Title").classList.add("hide");
   document.getElementById("Instruct").classList.add("hide");
   document.getElementById("questions").classList.remove("hide");
@@ -97,7 +97,8 @@ function starter() {
 function nextQuest() {
   resetState();  
   if (startQuest < questAnnoying.length) {
-    displayQuest(questAnnoying[startQuest]);  
+    displayQuest(questAnnoying[startQuest]);
+    console.log(startQuest);  
   }else{
     endQuiz();
     scoreBoard.classList.remove("hide");    
@@ -106,6 +107,8 @@ function nextQuest() {
 }
 
 function displayQuest(questions) {
+  questEl.classList.remove("hide");  
+  console.log(questions);  
   questEl.innerText = questions.question;
   questions.answers.forEach((answers) => {
     const button = document.createElement("button");
@@ -132,8 +135,7 @@ function pickClick(event) {
     nextQuest();
   }
 
-  if (questAnnoying.length > startQuest + 1) {
-    // forwardItOut.classList.remove("hide");
+  if (questAnnoying.length >= startQuest + 1) {
   } else {
     document.getElementById("questions").classList.add("hide");
   }
@@ -181,9 +183,9 @@ function storeName(){
     startItOut.classList.remove("hide");
 }
 
-//function clearScores(){
-//    localStorage.clear();
-//}
+function clearScores(){
+    localStorage.clear();
+}
 
 function endQuiz() {
   clearInterval(timerObject);

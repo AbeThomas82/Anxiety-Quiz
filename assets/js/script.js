@@ -28,9 +28,10 @@ function starter() {
 }
 
 function nextQuest() {
-  resetState();
-  displayQuest(questAnnoying[startQuest]);
-  if (startQuest == questAnnoying.length) {
+  resetState();  
+  if (startQuest < questAnnoying.length) {
+    displayQuest(questAnnoying[startQuest]);  
+  }else{
     endQuiz();
     resetState();
   }

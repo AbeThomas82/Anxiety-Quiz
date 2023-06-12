@@ -80,6 +80,10 @@ const questAnnoying = [
   
 
 function starter() {
+    console.log(this.innerText)
+    if(this.innerText=="Restart"){
+        window.location.reload()
+    }
   document.getElementById("saveUser").addEventListener("click",storeName);  
   document.getElementById("clearScores").addEventListener("click",clearScores);  
   document.getElementById("Test-Title").classList.add("hide");
@@ -177,7 +181,6 @@ function storeName(){
     var username = document.getElementById("Initials").value
     var storeLeader = JSON.parse(localStorage.getItem("userScore"))||[]
     storeLeader.push({user:username,score:score*20})
-    var highScores = [];
     localStorage.setItem("userScore",JSON.stringify(storeLeader))
     scoreBoard.style.display = "none";
     nextScores.style.display = "none";
@@ -185,9 +188,18 @@ function storeName(){
     alert("If you would like to restart the quiz. Click restart button on next page.");
     startItOut.classList.remove("hide");
     next.classList.remove("hide");
-    for (let i = 0; i < storeLeader.length; i++) {
-        highScores[i] = JSON.parse(localStorage.getItem("userScore"));
+    document.querySelector("#scoreList").classList.remove("hide")
+    document.querySelector("#highScores").classList.remove("hide")
 
+    for (let i = 0; i < JSON.parse(localStorage.getItem("userScore")).length; i++) {
+        highScores[i] = JSON.parse(localStorage.getItem("userScore"));
+        console.log(highScores[i])
+        for (let j = 0; j < highScores[i].length; j++) {
+            console.log(highScores[i][j].score)
+            var li = document.createElement("li")
+            document.querySelector("#scoreList").appendChild(li)
+            li.textContent = highScores[i][j].user + ": "+ highScores[i][j].score
+        }
         //inside here create an element for score and initials, can be an li
         //set textContent to be user and score
         //and append it to that next div

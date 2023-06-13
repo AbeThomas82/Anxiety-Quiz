@@ -5,6 +5,7 @@
 //5. Timer.
 //6. Decrease time but more with wrong answer.
 
+//Various global variables
 const startItOut = document.getElementById("start-button");
 const timeStart = document.getElementById("timer-el");
 const questBox = document.getElementById("storage");
@@ -23,15 +24,14 @@ var endGame = false; //Ends everything
 var timeEle = document.getElementById("timer-el");
 var timerObject;
 var score = 0;
-const questAnnoying = [
-    //https://quizlet.com/779286477/javascript-fundamentals-flash-cards/
+const questAnnoying = [//Question bank
     {
       question: "Which is not a primitive data type in JavaScript?",
       answers: [
         { text: "Strings", accurate: false },
         { text: "Numbers", accurate: false },
         { text: "Booleans", accurate: false },
-        { text: "Functions", accurate: true },
+        { text: "Functions", accurate: true },//Every 'true' is a correct value
         { text: "Symbols", accurate: false },
       ],
     },
@@ -79,9 +79,9 @@ const questAnnoying = [
   ];
   
 
-function starter() {
+function starter() {//Function to start the game
     console.log(this.innerText)
-    if(this.innerText=="Restart"){
+    if(this.innerText=="Restart"){//Button revealed after user input
         window.location.reload()
     }
   document.getElementById("saveUser").addEventListener("click",storeName);  
@@ -89,30 +89,30 @@ function starter() {
   document.getElementById("Test-Title").classList.add("hide");
   document.getElementById("Instruct").classList.add("hide");
   document.getElementById("questions").classList.remove("hide");
-  console.log("GOOD LUCK");
+  console.log("GOOD LUCK");//Check to see quiz starts
   startQuest = 0;
   timerSec = 120;
   startItOut.classList.add("hide");
   timeStart.classList.remove("hide");
   questBox.classList.remove("hide");
-  startTimer();
-  nextQuest();
+  startTimer();//Timer element initiates
+  nextQuest();//Next question occurs
 }
 
 function nextQuest() {
   resetState();  
-  if (startQuest < questAnnoying.length) {
-    displayQuest(questAnnoying[startQuest]);
+  if (startQuest < questAnnoying.length) {//Ends questions upon limit
+    displayQuest(questAnnoying[startQuest]);//Goes through question bank array
     console.log(startQuest);  
   }else{
-    endQuiz();
+    endQuiz();//Terminates quiz after final question
     scoreBoard.classList.remove("hide");    
     countScore();
   }
 }
 
 function displayQuest(questions) {
-  questEl.classList.remove("hide");  
+  questEl.classList.remove("hide");//Reveals questions after title screen  
   console.log(questions);  
   questEl.innerText = questions.question;
   questions.answers.forEach((answers) => {
@@ -124,7 +124,7 @@ function displayQuest(questions) {
     answerEl.appendChild(button);
   });
 }
-function pickClick(event) {
+function pickClick(event) {//Detects mouse click and proceeds
   let chooseAnswer = event.target;
   const valid = chooseAnswer.dataset.correct;
   console.log("valid", valid);
@@ -140,14 +140,14 @@ function pickClick(event) {
     nextQuest();
   }
 
-  if (questAnnoying.length >= startQuest + 1) {
+  if (questAnnoying.length >= startQuest + 1) {//Allows every question revealed
   } else {
     document.getElementById("questions").classList.add("hide");
   }
  
 }
 
-function setStatusClass(element, valid) {
+function setStatusClass(element, valid) {//Allows graphic border for correct and wrong answers
   clearStatusClass(element);
   if (valid) {
     element.classList.add("correct");
@@ -155,17 +155,17 @@ function setStatusClass(element, valid) {
     element.classList.add("wrong");
   }
 }
-function clearStatusClass(element) {
+function clearStatusClass(element) {//Removes tally
   element.classList.remove("correct");
   element.classList.remove("wrong");
 }
-function resetState() {
+function resetState() {//Reset to Question 1
   while (answerEl.firstChild) {
     answerEl.removeChild(answerEl.firstChild);
   }
 }
 
-function startTimer() {
+function startTimer() {//Timer decrement value
   timerObject = setInterval(function () {
     if (timerSec >= 0) {
       timeEle.textContent = "Time Left: " + timerSec;
@@ -174,10 +174,10 @@ function startTimer() {
       clearInterval(timerObject);
       endQuiz();
     }
-  }, 1000);
+  }, 1000);//Decrements by seconds
 }
 
-function storeName(){
+function storeName(){//Tabulates and stores names with scores
     var username = document.getElementById("Initials").value
     var storeLeader = JSON.parse(localStorage.getItem("userScore"))||[]
     storeLeader.push({user:username,score:score*20})
@@ -197,23 +197,20 @@ function storeName(){
         console.log(highScores[i].score);
         var li = document.createElement("li");
         li.textContent = highScores[i].user + ": " + highScores[i].score;
-        scoreList.appendChild(li);
+        scoreList.appendChild(li);//for loop tabulates as quiz proceeds
         }
-        //inside here create an element for score and initials, can be an li
-        //set textContent to be user and score
-        //and append it to that next div
 }
 
-function clearScores(){
+function clearScores(){//Reset values
     localStorage.clear();
 }
 
-function endQuiz() {
+function endQuiz() {//Terminates quiz
   clearInterval(timerObject);
   scoreBoard.style.display = "block";
 }
 
-function countScore(){       
+function countScore(){//Mathematically determines score       
     alert("Your score is "+ score*20 +"!");
     console.log("Your score is "+ score*20 +"!");
 }

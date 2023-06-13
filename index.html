@@ -8,15 +8,15 @@
 </head>
 <body>
     <header>
-        <div><h1 id = "Test-Title">Quiz of Doom!!</h1>
+        <div><h1 id = "Test-Title">Quiz of Doom!!</h1><!--Title screen and instructions-->
         <h3 id = "Instruct"><p>Enjoy this fun quiz! Note: Choosing wrong answers with shrink your time.</p></h3></div>
-        <h4 id="timer-el" class = "hide">Timer: </h4>
+        <h4 id="timer-el" class = "hide">Timer: </h4><!--Set timer but hides at first-->
     </header>
 
     <div class = "Quiz">
-        <div id="storage" class = "hide">
+        <div id="storage" class = "hide"><!--Question storage-->
             <div id = "questions">Insert Question Here</div>
-            <div id = "answers" class = "layout">
+            <div id = "answers" class = "layout"><!--Grid layout of radio buttons-->
                 <button type = "radio" class = "options">Answer-1</button>
                 <button type = "radio" class = "options">Answer-2</button>
                 <button type = "radio" class = "options">Answer-3</button>
@@ -25,17 +25,17 @@
             </div>
         </div>
         <div id = "back-and-forth">
-            <div id = "highScores" class = "hide">
+            <div id = "highScores" class = "hide"><!--Used to display localStorage of names and scores-->
                 <h2>High Scores:</h2>
                 <br><br>
-                <ol id = "scoreList">
+                <ol id = "scoreList"><!--Organized list of name/score array-->
                 </ol> 
             </div>
             <div class = "banner" class = "hide">
-                <br><br><br><br>        
+                <br><br><br><br><!--Space between high scores title and array-->        
             <button id="start-button" class = "start-button options">Begin Quiz NOW!</button>          
         </div>
-        <div id ="scoreboard" class = "hide">
+        <div id ="scoreboard" class = "hide"><!--Basis of data collection-->
             <h2>Congrats! Enter your name!</h2>
             <input id = "Initials" type="text">
             <button id = "saveUser">Save User Score</button>

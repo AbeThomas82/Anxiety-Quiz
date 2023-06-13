@@ -90,6 +90,7 @@ header h3{
 
 #scoreboard{
     display: flex;
+    text-align: center;
     height: fit-content;
     padding: 5%;
     color: lavender;

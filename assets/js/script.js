@@ -192,18 +192,16 @@ function storeName(){
     document.querySelector("#highScores").classList.remove("hide")
 
     for (let i = 0; i < JSON.parse(localStorage.getItem("userScore")).length; i++) {
-        highScores[i] = JSON.parse(localStorage.getItem("userScore"));
-        console.log(highScores[i])
-        for (let j = 0; j < highScores[i].length; j++) {
-            console.log(highScores[i][j].score)
-            var li = document.createElement("li")
-            document.querySelector("#scoreList").appendChild(li)
-            li.textContent = highScores[i][j].user + ": "+ highScores[i][j].score
+        highScores[i] = JSON.parse(localStorage.getItem("userScore"))[i];
+        console.log(highScores[i]);
+        console.log(highScores[i].score);
+        var li = document.createElement("li");
+        li.textContent = highScores[i].user + ": " + highScores[i].score;
+        scoreList.appendChild(li);
         }
         //inside here create an element for score and initials, can be an li
         //set textContent to be user and score
         //and append it to that next div
-        }
 }
 
 function clearScores(){

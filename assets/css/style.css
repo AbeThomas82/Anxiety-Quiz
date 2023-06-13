@@ -41,6 +41,7 @@ body{
 
 #back-and-forth{
     align-items: center;
+    text-align: center;
     justify-content: center;
     display: grid;    
 }
@@ -109,9 +110,4 @@ header h3{
 #clearScores{
     display:inline-block;
     justify-content: space-between;    
-}
-
-#highScores{
-    display:grid;
-    margin:auto;
 }

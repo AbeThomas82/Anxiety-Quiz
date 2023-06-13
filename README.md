@@ -32,13 +32,13 @@ Deployed Site: https://abethomas82.github.io/Timed-Anxiety/
 
 ## Screenshots
 
-![Title Screen:](./assets/Screenshot1.png)
+[Title Screen](./assets/Screenshot1.png)
 
-![First Question:](./assets/Screenshot2.png)
+[First Question](./assets/Screenshot2.png)
 
-![Enter Name:](./assets/Screenshot3.png)
+[Enter Name](./assets/Screenshot3.png)
 
-![High Scores:](./assets/Screenshot4.png)
+[High Scores](./assets/Screenshot4.png)
 
 ## Credits/Sources
 
@@ -48,9 +48,9 @@ Lee Stevens and the many resources available aat Ask BCS
 
 Classmates/Instructors/TA's who have helped
 
-![Quizlet:](https://quizlet.com/779286477/javascript-fundamentals-flash-cards/)
+[Quizlet](https://quizlet.com/779286477/javascript-fundamentals-flash-cards/)
 
-![Web Dev Simplified:](https://youtu.be/riDzcEQbX6k)
+[Web Dev Simplified](https://youtu.be/riDzcEQbX6k)
 
 ## License
 

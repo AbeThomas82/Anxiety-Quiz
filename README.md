@@ -44,7 +44,7 @@ Deployed Site: https://abethomas82.github.io/Timed-Anxiety/
 
 Sherwin Abraham
 
-Lee Stevens and the many resources available aat Ask BCS
+Lee Stevens and the many resources available at Ask BCS
 
 Classmates/Instructors/TA's who have helped
 
